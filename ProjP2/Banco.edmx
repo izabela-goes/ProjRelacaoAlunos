@@ -4,68 +4,68 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProjP2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Curso">
+      <Schema Namespace="DBRelacaoAlunosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TB_AlunosDiplomados">
           <Key>
             <PropertyRef Name="Id_aluno" />
           </Key>
           <Property Name="Id_aluno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOME" Type="varchar" MaxLength="100" />
-          <Property Name="CPF" Type="varchar" MaxLength="100" />
-          <Property Name="EMEC_CURSO" Type="int" />
-          <Property Name="CURSO" Type="varchar" MaxLength="100" />
-          <Property Name="ANO_INGRESSO" Type="int" />
-          <Property Name="SEMESTRE_INGRESSO" Type="varchar" MaxLength="100" />
-          <Property Name="DATA_EXPEDICAO_DIPLOMA" Type="varchar" MaxLength="100" />
-          <Property Name="DATA_REGISTRO_DIPLOMA" Type="varchar" MaxLength="100" />
-          <Property Name="NUMERO_REGISTRO_DIPLOMA" Type="int" />
-          <Property Name="DATA_PUBLICACAO_DOU" Type="varchar" MaxLength="100" />
-          <Property Name="EMEC_IES_EXPEDIDORA" Type="int" />
-          <Property Name="EMEC_IES_REGISTRADORA" Type="int" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" />
+          <Property Name="CPF" Type="varchar" MaxLength="20" />
+          <Property Name="EMEC_CURSO" Type="varchar" MaxLength="30" />
+          <Property Name="CURSO" Type="varchar" MaxLength="50" />
+          <Property Name="ANO_INGRESSO" Type="varchar" MaxLength="4" />
+          <Property Name="SEMESTRE_INGRESSO" Type="varchar" MaxLength="30" />
+          <Property Name="DATA_EXPEDICAO_DIPLOMA" Type="varchar" MaxLength="20" />
+          <Property Name="DATA_REGISTRO_DIPLOMA" Type="varchar" MaxLength="20" />
+          <Property Name="NUMERO_REGISTRO_DIPLOMA" Type="varchar" MaxLength="20" />
+          <Property Name="DATA_PUBLICACAO_DOU" Type="varchar" MaxLength="30" />
+          <Property Name="EMEC_IES_EXPEDIDORA" Type="varchar" MaxLength="40" />
+          <Property Name="EMEC_IES_REGISTRADORA" Type="varchar" MaxLength="30" />
         </EntityType>
-        <EntityContainer Name="ProjP2ModelStoreContainer">
-          <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="DBRelacaoAlunosModelStoreContainer">
+          <EntitySet Name="TB_AlunosDiplomados" EntityType="Self.TB_AlunosDiplomados" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ProjP2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Curso">
+      <Schema Namespace="DBRelacaoAlunosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TB_AlunosDiplomados">
           <Key>
             <PropertyRef Name="Id_aluno" />
           </Key>
           <Property Name="Id_aluno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CPF" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="EMEC_CURSO" Type="Int32" />
-          <Property Name="CURSO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ANO_INGRESSO" Type="Int32" />
-          <Property Name="SEMESTRE_INGRESSO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DATA_EXPEDICAO_DIPLOMA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DATA_REGISTRO_DIPLOMA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="NUMERO_REGISTRO_DIPLOMA" Type="Int32" />
-          <Property Name="DATA_PUBLICACAO_DOU" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="EMEC_IES_EXPEDIDORA" Type="Int32" />
-          <Property Name="EMEC_IES_REGISTRADORA" Type="Int32" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EMEC_CURSO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CURSO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ANO_INGRESSO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="SEMESTRE_INGRESSO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_EXPEDICAO_DIPLOMA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_REGISTRO_DIPLOMA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NUMERO_REGISTRO_DIPLOMA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_PUBLICACAO_DOU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="EMEC_IES_EXPEDIDORA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EMEC_IES_REGISTRADORA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="ProjP2Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Curso" EntityType="Self.Curso" />
+        <EntityContainer Name="DBRelacaoAlunosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_AlunosDiplomados" EntityType="Self.TB_AlunosDiplomados" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ProjP2ModelStoreContainer" CdmEntityContainer="ProjP2Entities">
-          <EntitySetMapping Name="Curso">
-            <EntityTypeMapping TypeName="ProjP2Model.Curso">
-              <MappingFragment StoreEntitySet="Curso">
+        <EntityContainerMapping StorageEntityContainer="DBRelacaoAlunosModelStoreContainer" CdmEntityContainer="DBRelacaoAlunosEntities">
+          <EntitySetMapping Name="TB_AlunosDiplomados">
+            <EntityTypeMapping TypeName="DBRelacaoAlunosModel.TB_AlunosDiplomados">
+              <MappingFragment StoreEntitySet="TB_AlunosDiplomados">
                 <ScalarProperty Name="Id_aluno" ColumnName="Id_aluno" />
                 <ScalarProperty Name="NOME" ColumnName="NOME" />
                 <ScalarProperty Name="CPF" ColumnName="CPF" />
                 <ScalarProperty Name="EMEC_CURSO" ColumnName="EMEC_CURSO" />
-                <ScalarProperty Name="CURSO1" ColumnName="CURSO" />
+                <ScalarProperty Name="CURSO" ColumnName="CURSO" />
                 <ScalarProperty Name="ANO_INGRESSO" ColumnName="ANO_INGRESSO" />
                 <ScalarProperty Name="SEMESTRE_INGRESSO" ColumnName="SEMESTRE_INGRESSO" />
                 <ScalarProperty Name="DATA_EXPEDICAO_DIPLOMA" ColumnName="DATA_EXPEDICAO_DIPLOMA" />

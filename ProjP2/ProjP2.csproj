@@ -77,8 +77,8 @@
   <ItemGroup>
     <Content Include="Banco.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Banco.Context.cs</LastGenOutput>
       <DependentUpon>Banco.edmx</DependentUpon>
+      <LastGenOutput>Banco.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Banco.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -90,6 +90,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\sobre.css" />
+    <Content Include="DadosCadastrados.aspx" />
     <Content Include="ImportPlanilha.aspx" />
     <Content Include="js\bootbox.min.js" />
     <Content Include="js\bootstrap.js" />
@@ -115,8 +116,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Banco.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Curso.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
+    <Compile Include="DadosCadastrados.aspx.cs">
+      <DependentUpon>DadosCadastrados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DadosCadastrados.aspx.designer.cs">
+      <DependentUpon>DadosCadastrados.aspx</DependentUpon>
     </Compile>
     <Compile Include="ImportPlanilha.aspx.cs">
       <DependentUpon>ImportPlanilha.aspx</DependentUpon>
@@ -133,8 +138,13 @@
       <DependentUpon>Principal.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TB_AlunosDiplomados.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap.css.map" />
     <EntityDeploy Include="Banco.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Banco.Designer.cs</LastGenOutput>
@@ -142,8 +152,6 @@
     <Content Include="Banco.edmx.diagram">
       <DependentUpon>Banco.edmx</DependentUpon>
     </Content>
-    <Content Include="css\bootstrap-theme.css.map" />
-    <Content Include="css\bootstrap.css.map" />
     <None Include="packages.config" />
     <Content Include="Principal.Master" />
     <None Include="Web.Debug.config">

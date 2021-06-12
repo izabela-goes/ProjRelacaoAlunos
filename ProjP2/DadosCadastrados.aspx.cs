@@ -14,32 +14,53 @@ namespace ProjP2
 
         }
 
-        protected void GVCamisetas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        string titulo = "";
+        string msg = "";
 
         protected void dgvDadosCadastrados_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int idItem = Convert.ToInt32(e.CommandArgument.ToString());
-            ProjP2Entities contextCurso = new ProjP2Entities();
-            Curso cursos = new Curso();
+            DBRelacaoAlunosEntities contextAlunos = new DBRelacaoAlunosEntities();
+            TB_AlunosDiplomados alunosDiplomados = new TB_AlunosDiplomados();
 
-            cursos = contextCurso.Curso.First(c => c.Id_aluno == idItem);
+            alunosDiplomados = contextAlunos.TB_AlunosDiplomados.First(c => c.Id_aluno == idItem);
 
             if (e.CommandName == "ALTERAR")
             {
-                Response.Redirect("Camisetas.aspx?idItem=" + idItem);
+                Response.Redirect("ImportPlanilha.aspx?idItem=" + idItem);
             }
             else if (e.CommandName == "EXCLUIR")
             {
-                contextCurso.Curso.Remove(cursos);
-                contextCurso.SaveChanges();
-                string msg = "Registro excluído com sucesso !";
-                string titulo = "Informação";
+                contextAlunos.TB_AlunosDiplomados.Remove(alunosDiplomados);
+                contextAlunos.SaveChanges();
+                titulo = "Mensagem";
+                msg = "Registro excluído com sucesso !";
                 CarregarLista();
                 DisplayAlert(titulo, msg, this);
             }
+        }
+
+        private void CarregarLista()
+        {
+            DBRelacaoAlunosEntities context = new DBRelacaoAlunosEntities();
+            List<TB_AlunosDiplomados> lstAlunosDiplomados = context.TB_AlunosDiplomados.ToList<TB_AlunosDiplomados>();
+
+            dgvDadosCadastrados.DataSource = lstAlunosDiplomados;
+            dgvDadosCadastrados.DataBind();
+        }
+
+        public void DisplayAlert(string titulo, string mensagem, System.Web.UI.Page page)
+        {
+            h1.InnerText = titulo;
+            Label1.InnerText = mensagem;
+            ClientScript.RegisterStartupScript(typeof(Page), Guid.NewGuid().ToString(),
+                "MostrarPopupMensagem();", true);
+        }
+
+        protected void btnMostrarDados_Click(object sender, EventArgs e)
+        {
+            CarregarLista();
+            dgvDadosCadastrados.Visible = true;
         }
     }
 }

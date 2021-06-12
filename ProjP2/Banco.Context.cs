@@ -13,10 +13,10 @@ namespace ProjP2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProjP2Entities : DbContext
+    public partial class DBRelacaoAlunosEntities : DbContext
     {
-        public ProjP2Entities()
-            : base("name=ProjP2Entities")
+        public DBRelacaoAlunosEntities()
+            : base("name=DBRelacaoAlunosEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace ProjP2
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Curso> Curso { get; set; }
+        public virtual DbSet<TB_AlunosDiplomados> TB_AlunosDiplomados { get; set; }
     }
 }
